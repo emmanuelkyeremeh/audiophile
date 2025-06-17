@@ -48,7 +48,7 @@ const CartModal = ({ isOpen, onClose }) => {
                 <div key={item.slug} className="cart-item">
                   <div className="cart-item-image">
                     <img
-                      src={`/src/assets/cart/image-${item.slug}.jpg`}
+                      src={`/assets/cart/image-${item.slug}.jpg`}
                       alt={item.product.name}
                     />
                   </div>

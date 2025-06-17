@@ -36,8 +36,6 @@ import xx99MarkOneGallery3Desktop from "../assets/product-xx99-mark-one-headphon
 import xx99MarkOneGallery3Tablet from "../assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg";
 import xx99MarkOneGallery3Mobile from "../assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg";
 
-// Similar imports for other products' gallery images...
-
 const productImagesMap = {
   "xx99-mark-one-headphones": {
     desktop: xx99MarkOneDesktop,
@@ -118,15 +116,15 @@ const Product = () => {
         <div className="product-img">
           <picture>
             <source
-              srcSet={`/src/assets/product-${product.slug}/desktop/image-product.jpg`}
+              srcSet={`/assets/product-${product.slug}/desktop/image-product.jpg`}
               media="(min-width: 1024px)"
             />
             <source
-              srcSet={`/src/assets/product-${product.slug}/tablet/image-product.jpg`}
+              srcSet={`/assets/product-${product.slug}/tablet/image-product.jpg`}
               media="(min-width: 768px)"
             />
             <img
-              src={`/src/assets/product-${product.slug}/mobile/image-product.jpg`}
+              src={`/assets/product-${product.slug}/mobile/image-product.jpg`}
               alt={product.name}
             />
           </picture>
@@ -174,43 +172,43 @@ const Product = () => {
         <div className="gallery-grid">
           <picture className="gallery-item first">
             <source
-              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-1.jpg`}
+              srcSet={`/assets/product-${product.slug}/desktop/image-gallery-1.jpg`}
               media="(min-width: 1024px)"
             />
             <source
-              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-1.jpg`}
+              srcSet={`/assets/product-${product.slug}/tablet/image-gallery-1.jpg`}
               media="(min-width: 768px)"
             />
             <img
-              src={`/src/assets/product-${product.slug}/mobile/image-gallery-1.jpg`}
+              src={`/assets/product-${product.slug}/mobile/image-gallery-1.jpg`}
               alt="Gallery 1"
             />
           </picture>
           <picture className="gallery-item second">
             <source
-              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-2.jpg`}
+              srcSet={`/assets/product-${product.slug}/desktop/image-gallery-2.jpg`}
               media="(min-width: 1024px)"
             />
             <source
-              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-2.jpg`}
+              srcSet={`/assets/product-${product.slug}/tablet/image-gallery-2.jpg`}
               media="(min-width: 768px)"
             />
             <img
-              src={`/src/assets/product-${product.slug}/mobile/image-gallery-2.jpg`}
+              src={`/assets/product-${product.slug}/mobile/image-gallery-2.jpg`}
               alt="Gallery 2"
             />
           </picture>
           <picture className="gallery-item third">
             <source
-              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-3.jpg`}
+              srcSet={`/assets/product-${product.slug}/desktop/image-gallery-3.jpg`}
               media="(min-width: 1024px)"
             />
             <source
-              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-3.jpg`}
+              srcSet={`/assets/product-${product.slug}/tablet/image-gallery-3.jpg`}
               media="(min-width: 768px)"
             />
             <img
-              src={`/src/assets/product-${product.slug}/mobile/image-gallery-3.jpg`}
+              src={`/assets/product-${product.slug}/mobile/image-gallery-3.jpg`}
               alt="Gallery 3"
             />
           </picture>
@@ -224,15 +222,15 @@ const Product = () => {
             <div key={other.slug} className="suggestion">
               <picture>
                 <source
-                  srcSet={`/src/assets/shared/desktop/image-${other.slug}.jpg`}
+                  srcSet={`/assets/shared/desktop/image-${other.slug}.jpg`}
                   media="(min-width: 1024px)"
                 />
                 <source
-                  srcSet={`/src/assets/shared/tablet/image-${other.slug}.jpg`}
+                  srcSet={`/assets/shared/tablet/image-${other.slug}.jpg`}
                   media="(min-width: 768px)"
                 />
                 <img
-                  src={`/src/assets/shared/mobile/image-${other.slug}.jpg`}
+                  src={`/assets/shared/mobile/image-${other.slug}.jpg`}
                   alt={other.name}
                 />
               </picture>

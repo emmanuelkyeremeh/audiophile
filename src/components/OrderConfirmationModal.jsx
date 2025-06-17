@@ -44,10 +44,7 @@ const OrderConfirmationModal = () => {
               <div className="item-with-price">
                 <div className="item-image">
                   <img
-                    src={`/src/${mainItem.product.image.mobile.replace(
-                      "./",
-                      ""
-                    )}`}
+                    src={`/assets/cart/image-${mainItem.product.slug}.jpg`}
                     alt={mainItem.product.name}
                   />
                 </div>
