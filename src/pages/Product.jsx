@@ -1,59 +1,91 @@
 import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../state/cartSlice";
 import data from "../data.json";
 import "../styles/Product.css";
-// Import all product images for desktop
-import xx99MarkOneImg from "../assets/product-xx99-mark-one-headphones/desktop/image-product.jpg";
-import xx99MarkTwoImg from "../assets/product-xx99-mark-two-headphones/desktop/image-product.jpg";
-import xx59Img from "../assets/product-xx59-headphones/desktop/image-product.jpg";
-import zx9Img from "../assets/product-zx9-speaker/desktop/image-product.jpg";
-import zx7Img from "../assets/product-zx7-speaker/desktop/image-product.jpg";
-import yx1Img from "../assets/product-yx1-earphones/desktop/image-product.jpg";
-// Import gallery images for all products (desktop only for now)
-import xx99MarkOneGallery1 from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg";
-import xx99MarkOneGallery2 from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg";
-import xx99MarkOneGallery3 from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg";
-import xx99MarkTwoGallery1 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
-import xx99MarkTwoGallery2 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
-import xx99MarkTwoGallery3 from "../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
-import xx59Gallery1 from "../assets/product-xx59-headphones/desktop/image-gallery-1.jpg";
-import xx59Gallery2 from "../assets/product-xx59-headphones/desktop/image-gallery-2.jpg";
-import xx59Gallery3 from "../assets/product-xx59-headphones/desktop/image-gallery-3.jpg";
-import zx9Gallery1 from "../assets/product-zx9-speaker/desktop/image-gallery-1.jpg";
-import zx9Gallery2 from "../assets/product-zx9-speaker/desktop/image-gallery-2.jpg";
-import zx9Gallery3 from "../assets/product-zx9-speaker/desktop/image-gallery-3.jpg";
-import zx7Gallery1 from "../assets/product-zx7-speaker/desktop/image-gallery-1.jpg";
-import zx7Gallery2 from "../assets/product-zx7-speaker/desktop/image-gallery-2.jpg";
-import zx7Gallery3 from "../assets/product-zx7-speaker/desktop/image-gallery-3.jpg";
-import yx1Gallery1 from "../assets/product-yx1-earphones/desktop/image-gallery-1.jpg";
-import yx1Gallery2 from "../assets/product-yx1-earphones/desktop/image-gallery-2.jpg";
-import yx1Gallery3 from "../assets/product-yx1-earphones/desktop/image-gallery-3.jpg";
 
-const imageMap = {
-  "xx99-mark-one-headphones": xx99MarkOneImg,
-  "xx99-mark-two-headphones": xx99MarkTwoImg,
-  "xx59-headphones": xx59Img,
-  "zx9-speaker": zx9Img,
-  "zx7-speaker": zx7Img,
-  "yx1-earphones": yx1Img,
-};
-const galleryMap = {
-  "xx99-mark-one-headphones": [
-    xx99MarkOneGallery1,
-    xx99MarkOneGallery2,
-    xx99MarkOneGallery3,
-  ],
-  "xx99-mark-two-headphones": [
-    xx99MarkTwoGallery1,
-    xx99MarkTwoGallery2,
-    xx99MarkTwoGallery3,
-  ],
-  "xx59-headphones": [xx59Gallery1, xx59Gallery2, xx59Gallery3],
-  "zx9-speaker": [zx9Gallery1, zx9Gallery2, zx9Gallery3],
-  "zx7-speaker": [zx7Gallery1, zx7Gallery2, zx7Gallery3],
-  "yx1-earphones": [yx1Gallery1, yx1Gallery2, yx1Gallery3],
+// Import product images for all screen sizes
+import xx99MarkOneDesktop from "../assets/product-xx99-mark-one-headphones/desktop/image-product.jpg";
+import xx99MarkOneTablet from "../assets/product-xx99-mark-one-headphones/tablet/image-product.jpg";
+import xx99MarkOneMobile from "../assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import xx99MarkTwoDesktop from "../assets/product-xx99-mark-two-headphones/desktop/image-product.jpg";
+import xx99MarkTwoTablet from "../assets/product-xx99-mark-two-headphones/tablet/image-product.jpg";
+import xx99MarkTwoMobile from "../assets/product-xx99-mark-two-headphones/mobile/image-product.jpg";
+import xx59Desktop from "../assets/product-xx59-headphones/desktop/image-product.jpg";
+import xx59Tablet from "../assets/product-xx59-headphones/tablet/image-product.jpg";
+import xx59Mobile from "../assets/product-xx59-headphones/mobile/image-product.jpg";
+import zx9Desktop from "../assets/product-zx9-speaker/desktop/image-product.jpg";
+import zx9Tablet from "../assets/product-zx9-speaker/tablet/image-product.jpg";
+import zx9Mobile from "../assets/product-zx9-speaker/mobile/image-product.jpg";
+import zx7Desktop from "../assets/product-zx7-speaker/desktop/image-product.jpg";
+import zx7Tablet from "../assets/product-zx7-speaker/tablet/image-product.jpg";
+import zx7Mobile from "../assets/product-zx7-speaker/mobile/image-product.jpg";
+import yx1Desktop from "../assets/product-yx1-earphones/desktop/image-product.jpg";
+import yx1Tablet from "../assets/product-yx1-earphones/tablet/image-product.jpg";
+import yx1Mobile from "../assets/product-yx1-earphones/mobile/image-product.jpg";
+
+// Import gallery images
+import xx99MarkOneGallery1Desktop from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg";
+import xx99MarkOneGallery1Tablet from "../assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg";
+import xx99MarkOneGallery1Mobile from "../assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg";
+import xx99MarkOneGallery2Desktop from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg";
+import xx99MarkOneGallery2Tablet from "../assets/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg";
+import xx99MarkOneGallery2Mobile from "../assets/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg";
+import xx99MarkOneGallery3Desktop from "../assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg";
+import xx99MarkOneGallery3Tablet from "../assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg";
+import xx99MarkOneGallery3Mobile from "../assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg";
+
+// Similar imports for other products' gallery images...
+
+const productImagesMap = {
+  "xx99-mark-one-headphones": {
+    desktop: xx99MarkOneDesktop,
+    tablet: xx99MarkOneTablet,
+    mobile: xx99MarkOneMobile,
+    gallery: {
+      first: {
+        desktop: xx99MarkOneGallery1Desktop,
+        tablet: xx99MarkOneGallery1Tablet,
+        mobile: xx99MarkOneGallery1Mobile,
+      },
+      second: {
+        desktop: xx99MarkOneGallery2Desktop,
+        tablet: xx99MarkOneGallery2Tablet,
+        mobile: xx99MarkOneGallery2Mobile,
+      },
+      third: {
+        desktop: xx99MarkOneGallery3Desktop,
+        tablet: xx99MarkOneGallery3Tablet,
+        mobile: xx99MarkOneGallery3Mobile,
+      },
+    },
+  },
+  "xx99-mark-two-headphones": {
+    desktop: xx99MarkTwoDesktop,
+    tablet: xx99MarkTwoTablet,
+    mobile: xx99MarkTwoMobile,
+  },
+  "xx59-headphones": {
+    desktop: xx59Desktop,
+    tablet: xx59Tablet,
+    mobile: xx59Mobile,
+  },
+  "zx9-speaker": {
+    desktop: zx9Desktop,
+    tablet: zx9Tablet,
+    mobile: zx9Mobile,
+  },
+  "zx7-speaker": {
+    desktop: zx7Desktop,
+    tablet: zx7Tablet,
+    mobile: zx7Mobile,
+  },
+  "yx1-earphones": {
+    desktop: yx1Desktop,
+    tablet: yx1Tablet,
+    mobile: yx1Mobile,
+  },
 };
 
 const Product = () => {
@@ -65,23 +97,39 @@ const Product = () => {
 
   if (!product) return <div>Product not found.</div>;
 
+  const productImages = productImagesMap[slug];
+
   const handleQuantity = (delta) => {
     setQuantity((q) => Math.max(1, q + delta));
   };
 
   const handleAddToCart = () => {
     dispatch(addToCart({ slug: product.slug, quantity, product }));
-    setQuantity(1); // Reset quantity after adding
+    setQuantity(1);
   };
 
   return (
-    <div className="product-page">
+    <div className="product-page container">
       <button className="go-back" onClick={() => navigate(-1)}>
         Go Back
       </button>
+
       <div className="product-main">
         <div className="product-img">
-          <img src={imageMap[product.slug]} alt={product.name} />
+          <picture>
+            <source
+              srcSet={`/src/assets/product-${product.slug}/desktop/image-product.jpg`}
+              media="(min-width: 1024px)"
+            />
+            <source
+              srcSet={`/src/assets/product-${product.slug}/tablet/image-product.jpg`}
+              media="(min-width: 768px)"
+            />
+            <img
+              src={`/src/assets/product-${product.slug}/mobile/image-product.jpg`}
+              alt={product.name}
+            />
+          </picture>
         </div>
         <div className="product-info">
           {product.new && <span className="overline">NEW PRODUCT</span>}
@@ -97,39 +145,100 @@ const Product = () => {
               <button onClick={() => handleQuantity(1)}>+</button>
             </div>
             <button className="btn btn-primary" onClick={handleAddToCart}>
-              Add to Cart
+              ADD TO CART
             </button>
           </div>
         </div>
       </div>
-      <div className="product-features">
-        <h2>Features</h2>
-        <p>{product.features}</p>
+
+      <div className="product-details">
+        <div className="features">
+          <h2>FEATURES</h2>
+          <p>{product.features}</p>
+        </div>
+
+        <div className="in-the-box">
+          <h2>IN THE BOX</h2>
+          <ul>
+            {product.includes.map((item) => (
+              <li key={item.item}>
+                <span className="item-qty">{item.quantity}x</span>
+                <span className="item-name">{item.item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="product-includes">
-        <h2>In the Box</h2>
-        <ul>
-          {product.includes.map((item) => (
-            <li key={item.item}>
-              <span className="item-qty">{item.quantity}x</span> {item.item}
-            </li>
-          ))}
-        </ul>
-      </div>
+
       <div className="product-gallery">
-        {galleryMap[product.slug].map((img, idx) => (
-          <img src={img} alt={`${product.name} gallery ${idx + 1}`} key={img} />
-        ))}
+        <div className="gallery-grid">
+          <picture className="gallery-item first">
+            <source
+              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-1.jpg`}
+              media="(min-width: 1024px)"
+            />
+            <source
+              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-1.jpg`}
+              media="(min-width: 768px)"
+            />
+            <img
+              src={`/src/assets/product-${product.slug}/mobile/image-gallery-1.jpg`}
+              alt="Gallery 1"
+            />
+          </picture>
+          <picture className="gallery-item second">
+            <source
+              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-2.jpg`}
+              media="(min-width: 1024px)"
+            />
+            <source
+              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-2.jpg`}
+              media="(min-width: 768px)"
+            />
+            <img
+              src={`/src/assets/product-${product.slug}/mobile/image-gallery-2.jpg`}
+              alt="Gallery 2"
+            />
+          </picture>
+          <picture className="gallery-item third">
+            <source
+              srcSet={`/src/assets/product-${product.slug}/desktop/image-gallery-3.jpg`}
+              media="(min-width: 1024px)"
+            />
+            <source
+              srcSet={`/src/assets/product-${product.slug}/tablet/image-gallery-3.jpg`}
+              media="(min-width: 768px)"
+            />
+            <img
+              src={`/src/assets/product-${product.slug}/mobile/image-gallery-3.jpg`}
+              alt="Gallery 3"
+            />
+          </picture>
+        </div>
       </div>
-      <div className="product-others">
-        <h2>You may also like</h2>
-        <div className="others-list">
+
+      <div className="you-may-also-like">
+        <h2>YOU MAY ALSO LIKE</h2>
+        <div className="suggestions">
           {product.others.map((other) => (
-            <div className="other-card" key={other.slug}>
-              <img src={imageMap[other.slug]} alt={other.name} />
+            <div key={other.slug} className="suggestion">
+              <picture>
+                <source
+                  srcSet={`/src/assets/shared/desktop/image-${other.slug}.jpg`}
+                  media="(min-width: 1024px)"
+                />
+                <source
+                  srcSet={`/src/assets/shared/tablet/image-${other.slug}.jpg`}
+                  media="(min-width: 768px)"
+                />
+                <img
+                  src={`/src/assets/shared/mobile/image-${other.slug}.jpg`}
+                  alt={other.name}
+                />
+              </picture>
               <h3>{other.name}</h3>
-              <Link to={`/product/${other.slug}`} className="btn btn-secondary">
-                See Product
+              <Link to={`/product/${other.slug}`} className="btn btn-primary">
+                SEE PRODUCT
               </Link>
             </div>
           ))}

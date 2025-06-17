@@ -1,137 +1,493 @@
 .home {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 }
 
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero Section */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #d87d4a;
+  background-color: #191919;
   color: #fff;
-  border-radius: 8px;
-  padding: 3rem 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  position: relative;
+  height: 632px;
+  overflow: hidden;
+  margin-bottom: 120px;
 }
+
 .hero-content {
-  max-width: 500px;
+  position: relative;
+  z-index: 2;
+  padding-top: 128px;
+  max-width: 398px;
 }
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-img img {
-  width: 350px;
-  max-width: 100%;
-  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+  margin: 24px 0;
+}
+
+.hero p {
+  opacity: 0.75;
+  margin-bottom: 40px;
+}
+
 .overline {
   text-transform: uppercase;
   letter-spacing: 10px;
   color: #fff;
-  opacity: 0.7;
-  font-size: 0.9rem;
-  font-weight: 400;
+  opacity: 0.5;
+  font-size: 14px;
 }
+
+/* Buttons */
 .btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  border: none;
-  border-radius: 2px;
-  font-size: 1rem;
+  padding: 15px 30px;
+  font-size: 13px;
   font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  cursor: pointer;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
 }
+
 .btn-primary {
-  background: #191919;
-  color: #fff;
-}
-.btn-primary:hover {
-  background: #4c4c4c;
-}
-.btn-secondary {
-  background: #f1f1f1;
-  color: #191919;
-}
-.btn-secondary:hover {
   background: #d87d4a;
   color: #fff;
 }
-.categories {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+
+.btn-primary:hover {
+  background: #fbaf85;
 }
+
+.btn-black {
+  background: #000;
+  color: #fff;
+}
+
+.btn-black:hover {
+  background: #4c4c4c;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-outline:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Categories Section */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 168px;
+}
+
 .category-card {
   background: #f1f1f1;
   border-radius: 8px;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 116px 0 22px;
   text-align: center;
   text-decoration: none;
-  color: #191919;
-  width: 200px;
-  transition: box-shadow 0.2s, background 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  color: #000;
+  position: relative;
 }
+
 .category-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 1rem;
+  width: 160px;
+  position: absolute;
+  top: -52px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.category-card:hover {
-  background: #d87d4a;
-  color: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+
+.category-card h6 {
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  margin-bottom: 15px;
 }
-.category-card .shop-link {
-  color: #d87d4a;
+
+.shop-link {
+  color: #000;
+  opacity: 0.5;
+  font-size: 13px;
   font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  margin-top: 0.5rem;
-  transition: color 0.2s;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
 }
-.category-card:hover .shop-link {
-  color: #fff;
+
+.shop-link .arrow {
+  color: #d87d4a;
+  font-size: 18px;
 }
+
+/* Featured Section */
 .featured {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 48px;
+  margin-bottom: 200px;
 }
-.featured-card {
+
+.featured-zx9 {
+  background: #d87d4a;
+  border-radius: 8px;
+  padding: 96px 95px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  overflow: hidden;
+}
+
+.pattern-circles {
+  position: absolute;
+  left: -150px;
+  top: -40px;
+  width: 944px;
+  height: 944px;
+}
+
+.featured-zx9 .product-image {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-zx9 .product-image img {
+  width: 410px;
+  margin-top: 96px;
+}
+
+.featured-zx9 .content {
+  padding-top: 96px;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-zx9 h1 {
+  font-size: 56px;
+  line-height: 58px;
+  margin-bottom: 24px;
+}
+
+.featured-zx9 p {
+  opacity: 0.75;
+  margin-bottom: 40px;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.featured-zx7 {
+  background-image: url('../assets/home/desktop/image-speaker-zx7.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  height: 320px;
+  padding: 0 95px;
   display: flex;
   align-items: center;
+}
+
+.featured-zx7 .content {
+  max-width: 204px;
+}
+
+.featured-zx7 h4 {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.featured-yx1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.featured-yx1 .image {
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.featured-yx1 .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-yx1 .content {
   background: #f1f1f1;
   border-radius: 8px;
-  padding: 2rem;
-  gap: 2rem;
-  flex-wrap: wrap;
+  padding: 0 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.featured-card img {
-  width: 250px;
-  max-width: 100%;
+
+.featured-yx1 h4 {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+/* Best Gear Section */
+.best-gear {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 125px;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+.best-gear .content {
+  max-width: 445px;
+}
+
+.best-gear h2 {
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+}
+
+.best-gear h2 span {
+  color: #d87d4a;
+}
+
+.best-gear p {
+  opacity: 0.5;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.best-gear .image {
   border-radius: 8px;
+  overflow: hidden;
 }
-.featured-info {
-  max-width: 500px;
+
+.best-gear .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-@media (max-width: 900px) {
-  .hero, .featured-card {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 2rem;
+
+@media (max-width: 1110px) {
+  .hero {
+    height: 729px;
+    margin-bottom: 96px;
   }
+
+  .hero-content {
+    padding-top: 126px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
   .categories {
+    margin-bottom: 96px;
+    padding: 0 39px;
+  }
+
+  .featured {
+    margin-bottom: 96px;
+    padding: 0 39px;
+  }
+
+  .featured-zx9 {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 52px 24px;
+  }
+
+  .featured-zx9 .product-image {
+    margin: 0 auto;
+  }
+
+  .featured-zx9 .product-image img {
+    width: 197px;
+    margin-top: 0;
+  }
+
+  .featured-zx9 .content {
+    padding-top: 64px;
+    max-width: 349px;
+    margin: 0 auto;
+  }
+
+  .featured-zx9 h1 {
+    font-size: 56px;
+    line-height: 58px;
+    margin-bottom: 24px;
+  }
+
+  .featured-zx7 {
+    padding: 0 62px;
+    background-image: url('../assets/home/tablet/image-speaker-zx7.jpg');
+  }
+
+  .featured-yx1 .content {
+    padding: 0 41px;
+  }
+
+  .best-gear {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 63px;
+    margin-bottom: 96px;
+    padding: 0 39px;
+  }
+
+  .best-gear .content {
+    max-width: 573px;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .best-gear .image {
+    order: 1;
+  }
+
+  .best-gear .image img {
+    content: url('../assets/shared/tablet/image-best-gear.jpg');
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 600px;
+    margin-bottom: 40px;
+  }
+
+  .hero-content {
+    padding-top: 108px;
+    max-width: 328px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 16px 0;
+  }
+
+  .hero p {
+    margin-bottom: 28px;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 68px;
+    margin-bottom: 120px;
+    padding: 0 24px;
+  }
+
+  .category-card {
+    max-width: 327px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 88px 0 22px;
+  }
+
+  .category-card img {
+    width: 140px;
+    top: -40px;
+  }
+
+  .category-card h6 {
+    margin-bottom: 17px;
+  }
+
+  .featured {
+    gap: 24px;
+    margin-bottom: 120px;
+    padding: 0 24px;
+  }
+
+  .featured-zx9 {
+    padding: 55px 24px;
+  }
+
+  .featured-zx9 .product-image img {
+    width: 172px;
+  }
+
+  .featured-zx9 .content {
+    padding-top: 32px;
+  }
+
+  .featured-zx9 h1 {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 24px;
+  }
+
+  .featured-zx7 {
+    padding: 0 24px;
+    background-image: url('../assets/home/mobile/image-speaker-zx7.jpg');
+  }
+
+  .featured-yx1 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .featured-yx1 .image img {
+    content: url('../assets/home/mobile/image-earphones-yx1.jpg');
+  }
+
+  .featured-yx1 .content {
+    background: #F1F1F1;
+    border-radius: 8px;
+    height: 200px;
+    display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 24px;
+  }
+
+  .best-gear {
+    gap: 40px;
+    margin-bottom: 120px;
+    padding: 0 24px;
+  }
+
+  .best-gear h2 {
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 1px;
+  }
+
+  .best-gear .image img {
+    content: url('../assets/shared/mobile/image-best-gear.jpg');
   }
 } 
